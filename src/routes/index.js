@@ -1,7 +1,6 @@
-import PageHome from '@/components/pages/Home'
-import PageThreadShow from '@/components/pages/ThreadShow'
-import PageNotFound from '@/components/pages/NotFound'
 //import * as VueRouter from 'vue-router'
+import Page from '@/components/pages' // Created index.js in pages just declare new page components in there
+                                      // will be able to access by Page.ComponentName. Seemed like a good idea
 import { createRouter, createWebHistory } from 'vue-router'
 import sourceData from "@/data.json"
 
@@ -9,12 +8,18 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: PageHome
+        component: Page.Home
+    },
+    {
+        path: '/forum/:id',
+        name: 'Forum',
+        component: Page.Forum,
+        props: true
     },
     {
         path: '/thread/:id',
         name: 'ThreadShow',
-        component: PageThreadShow,
+        component: Page.ThreadShow,
         props: true,
         beforeEnter (to, from, next) {
             // check if thread exists
@@ -37,7 +42,7 @@ const routes = [
     { 
         path: '/:pathMatch(.*)*', 
         name: 'NotFound', 
-        component: PageNotFound 
+        component: Page.NotFound 
     }
 ]
 
