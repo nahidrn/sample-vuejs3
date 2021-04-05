@@ -1,6 +1,6 @@
 <template>
     <h1>Welcome to the Forum</h1>
-    <forum-list :forums="forums"/>
+    <category-list :categories="categories"/>
     <!--
     <div v-for="thread in threads" :key="thread.id">
         <h2>{{thread.title}}</h2>
@@ -15,14 +15,14 @@
 
 <script>
 import sourceData from '@/data.json'
-import ForumList from '../ForumList.vue'
+import CategoryList from '../CategoryList.vue'
 export default {
     components: {
-        ForumList
+        CategoryList
     },
     data() {
         return {
-            forums: sourceData.forums
+            categories: sourceData.categories
         }
     }
 }

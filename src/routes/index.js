@@ -11,6 +11,12 @@ const routes = [
         component: Page.Home
     },
     {
+        path: '/category/:id',
+        name: 'Category',
+        component: Page.Category,
+        props: true
+    },
+    {
         path: '/forum/:id',
         name: 'Forum',
         component: Page.Forum,
